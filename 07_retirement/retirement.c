@@ -7,14 +7,14 @@ struct retire_info_t{
   double rate_of_return;
 };
 
-typedef struct retire_info_t retire_info;
+typedef struct retire_info_t _retire_info;
 
-double calculation(double initial,retire_info money){
+double calculation(double initial,_retire_info money){
   initial += initial * money.rate_of_return + money.contribution;
   return initial;
 }
 
-void retirement (int startAge, double initial, retire_info working, retire_info retired ){
+void retirement (int startAge, double initial, _retire_info working, _retire_info retired ){
   
    for(int i = 0 ; i < working.months ; i++){ 
     printf("Age %3d month %2d you have $%.2lf\n",startAge/12,startAge%12,initial);
@@ -32,8 +32,8 @@ void retirement (int startAge, double initial, retire_info working, retire_info 
 }
 int main(void){
 
-  retire_info Working;
-  retire_info Retired;
+  _retire_info Working;
+  _retire_info Retired;
   int age = 327;
   double savings = 21345;
   
