@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct retire_info_t{
+struct _retire_info{
   int months;
   double contribution;
   double rate_of_return;
 };
 
-typedef struct retire_info_t _retire_info;
+typedef struct _retire_info retire_info;
 
-double calculation(double initial,_retire_info money){
+double calculation(double initial,retire_info money){
   initial += initial * money.rate_of_return + money.contribution;
   return initial;
 }
 
-void retirement (int startAge, double initial, _retire_info working, _retire_info retired ){
+void retirement (int startAge, double initial, retire_info working, retire_info retired ){
   
    for(int i = 0 ; i < working.months ; i++){ 
     printf("Age %3d month %2d you have $%.2lf\n",startAge/12,startAge%12,initial);
@@ -32,8 +32,8 @@ void retirement (int startAge, double initial, _retire_info working, _retire_inf
 }
 int main(void){
 
-  _retire_info Working;
-  _retire_info Retired;
+  retire_info Working;
+  retire_info Retired;
   int age = 327;
   double savings = 21345;
   
